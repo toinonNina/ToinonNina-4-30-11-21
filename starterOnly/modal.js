@@ -58,6 +58,7 @@ function controlInputs() {
     const regExControlname = /^[A-Za-z-àâäéèêëïîôöùûüç]{2,15}$/;
     if (!regExControlname.test(firstname.value) || firstname.value == "") {
         alertFirstName.innerHTML = "Ne doit contenir que des lettres (au moins 2)";
+        firstname.style.border = "2px solid red";
         return false;
     } else {
         alertFirstName.innerHTML = "";
@@ -65,6 +66,7 @@ function controlInputs() {
     // controle nom de famille
     if (!regExControlname.test(lastname.value) || lastname.value == "") {
         alertLastName.innerHTML = "Ne doit contenir que des lettres (au moins 2)";
+        lastname.style.border = "2px solid red";
         return false;
     } else {
         alertLastName.innerHTML = "";
@@ -73,6 +75,7 @@ function controlInputs() {
     const regExControlEmail = /^[\w-.]+@([\w-]+.)+[\w-]{2,}$/g;
     if (!regExControlEmail.test(email.value) || email.value == "") {
         alertEmail.innerHTML = "veuillez entrer une adresse mail valide";
+        email.style.border = "2px solid red";
         return false;
     } else {
         alertEmail.innerHTML = "";
@@ -81,14 +84,16 @@ function controlInputs() {
     const regExControlBirthdate = /^\d{4}\-\d{2}\-\d{2}$/;
     if (!regExControlBirthdate.test(birthdate.value) || birthdate.value == "") {
         alertBirthdate.innerHTML = "veuillez remplir ce champs";
+        birthdate.style.border = "2px solid red";
+
         return false;
     } else {
         alertBirthdate.innerHTML = "";
     }
     //on vérifie que la valeur est bien est un chiffre même si l'input est typé en number 
-    const RegExControlQuantity = /^[0-9]$/;
-    if (!RegExControlQuantity.test(quantity.value) || quantity.value == "") {
+    if (quantity.value == "") {
         alertQuantity.innerHTML = "veuillez rentrer au moins un chiffre";
+        quantity.style.border = "2px solid red";
         return false;
     } else {
         alertQuantity.innerHTML = "";
@@ -134,3 +139,12 @@ submitForm.addEventListener("click", (e) => {
         closeValidation.addEventListener("click", closeModal);
     } else { return false; }
 });
+
+function editNav() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}

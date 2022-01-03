@@ -3,12 +3,16 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Reservation</title>
+
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content=" GameOn spécialisée dans les conférences et les concours de jeux, Marathon national de jeux vidéos, New York, San Francisco, Seattle, Chicago, Boston, Portland" />
     <link rel="stylesheet" href="modal.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" sizes="16x16" href="/starterOnly/images/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+    <title>GameOn Reservation de tournoi national de jeux vidéos</title>
 </head>
 
 <body>
@@ -17,11 +21,13 @@
             <img alt="logo" src="/starterOnly/images/Logo.png" />
         </div>
         <div class="main-navbar">
-            <a href="#" class="active"><span>Accueil</span></a>
-            <a href="#"><span>Détails de l'évènement</span></a>
+            <a href="#" class="active"><span>Détails de l'évènement</span></a>
             <a href="#"><span>À propos</span></a>
             <a href="#"><span>Contact</span></a>
             <a href="#"><span>Évènements passés</span></a>
+            <a href="javascript:void(0);" id="icon" class="icon" onclick="editNav()">
+                <i class="fa fa-bars"></i>
+            </a>
         </div>
     </div>
     <main>
@@ -34,7 +40,7 @@
                     Vous aimez jouer ? Notre prochain évènement gaming est ouvert aux réservations... Places limitées !
                 </p>
                 <button class="btn-signup modal-btn">
-                    je m'inscris
+                    Je M'inscris
                 </button>
             </div>
             <div class="hero-img">
@@ -75,7 +81,7 @@
                             <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
                             <div id="alertquantity" class="alertspan"></div>
                         </div>
-                        <p class="text-label">Quelles villes ?</p>
+                        <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
                         <div class="formData">
                             <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" />
                             <label class="checkbox-label" for="location1">
@@ -118,7 +124,7 @@
                                 Je souhaite être prévenu des prochains évènements.
                             </label>
                             <br>
-                            <div id="alertcondition" class="alertspan"></div>
+                            <div id="alertcondition2" class="alertspan"></div>
                         </div>
                         <input id="submitform" class="btn-submit button" type="submit" value="C'est parti" />
 
@@ -126,17 +132,21 @@
                 </div>
             </div>
         </div>
-        <div id="thankyou " class=".modal-btn ">
-            <div class="modalthankyou test">Merci ! Votre réservation a été reçue
-                <br>
-                <input class="button closevalid" type="button" value="Fermer" />
-            </div>
+        <div class=" modalthankyou">
+            <div id="modal-body__validation" class=".modal-btn content  ">
+                <span class="close "></span>
+                <div class="content__valid">
+                    <p>Merci pour votre inscription</p>
+                    <br>
+                    <input class="button closevalid bntendvalid" type="button" value="Fermer" />
+                </div>
 
+            </div>
         </div>
     </main>
     <footer>
         <p class="copyrights">
-            Copyright 2014 - 2020, GameOn Inc.
+            Copyright 2014 - 2022, GameOn Inc.
         </p>
     </footer>
     <script src="modal.js"></script>
