@@ -54,15 +54,34 @@ function closeModal() {
 
 
 // fonction qui va controler les différents input et insérer des message d'erreur dans le html
+/**
+ * controle d'espacement avant caratère des inputs
+ * @returns 
+ */
+
+window.onload = function () {
+    let inputs = document.getElementsByTagName('input');
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].type == 'text') {
+            inputs[i].onchange = function () {
+                this.value = this.value.replace(/^\s+/, '').replace(/\s+$/, '');
+            };
+        }
+    }
+};
+
 function controlInputs() {
+
+
     //controle prénom
-    const regExControlname = /^[A-Za-z-àâäéèêëïîôöùûüç]{2,15}$/;
-    if (!regExControlname.test(firstname.value) || firstname.value == "") {
+    const regExControlname = /^[A-Za-z-àâäéèêëïîôöùûüç ]{2,15}$/;
+    if (!regExControlname.test(firstname.value) || firstname.value == "" && firstname.value.trim()) {
         alertFirstName.innerHTML = "Ne doit contenir que des lettres (au moins 2)";
         firstname.style.border = "2px solid red";
         return false;
     } else {
         alertFirstName.innerHTML = "";
+        firstname.style.border = "none";
     }
     // controle nom de famille
     if (!regExControlname.test(lastname.value) || lastname.value == "") {
@@ -71,6 +90,7 @@ function controlInputs() {
         return false;
     } else {
         alertLastName.innerHTML = "";
+        lastname.style.border = "none";
     }
     // controle de l'email
     const regExControlEmail = /^[\w-.]+@([\w-]+.)+[\w-]{2,}$/g;
@@ -80,6 +100,7 @@ function controlInputs() {
         return false;
     } else {
         alertEmail.innerHTML = "";
+        email.style.border = "none";
     }
     // controle du format de la date de naissance
     const regExControlBirthdate = /^\d{4}\-\d{2}\-\d{2}$/;
@@ -87,9 +108,11 @@ function controlInputs() {
         alertBirthdate.innerHTML = "veuillez remplir ce champs";
         birthdate.style.border = "2px solid red";
 
+
         return false;
     } else {
         alertBirthdate.innerHTML = "";
+        birthdate.style.border = "none";
     }
     //on vérifie que la valeur est bien est un chiffre même si l'input est typé en number 
     if (quantity.value == "") {
@@ -98,6 +121,8 @@ function controlInputs() {
         return false;
     } else {
         alertQuantity.innerHTML = "";
+        quantity.style.border = "none";
+
     }
     // on vérifie si une radio a été cochée 
     if (locationUn.checked ||
