@@ -33,7 +33,8 @@ const submitForm = document.getElementById("submitform");
 const launchValidation = document.querySelector(".modalthankyou");
 const closeValidation = document.querySelector(".closevalid");
 const croixClose = document.querySelector(".closed");
-
+var inputs = document.getElementsByTagName('input');
+console.log(inputs);
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -60,9 +61,9 @@ function closeModal() {
  */
 
 window.onload = function () {
-    let inputs = document.getElementsByTagName('input');
+
     for (let i = 0; i < inputs.length; i++) {
-        if (inputs[i].type == 'text') {
+        if (inputs[i].type == 'text' || inputs[i].type == 'email' || inputs[i].type == 'number') {
             inputs[i].onchange = function () {
                 this.value = this.value.replace(/^\s+/, '').replace(/\s+$/, '');
             };
