@@ -32,6 +32,7 @@ const submitForm = document.getElementById("submitform");
 
 const launchValidation = document.querySelector(".modalthankyou");
 const closeValidation = document.querySelector(".closevalid");
+const croixClose = document.querySelector(".closed");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -44,7 +45,7 @@ function launchModal() {
 
 // close modal form event
 btnCloseModal.addEventListener("click", closeModal);
-
+croixClose.addEventListener("click", closeModal);
 // close modal form
 function closeModal() {
     modalbg.style.display = "none";
